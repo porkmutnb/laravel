@@ -27,7 +27,7 @@ class CheckMember
     {
         $array = Array();
         if(Auth::User()) {
-            if(Auth::User()->status!="admin") {
+            if(Auth::User()->status=="member") {
                 return $next($request);
             }else{
                 $result = app('App\Http\Controllers\HelperController')->Response(false, "500", "no Permission", $array);

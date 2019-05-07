@@ -48,12 +48,3 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('logout', 'AccountController@logout');
 });
-
-Route::prefix('api/')->group(function () {
-    Route::post('login', 'AccountController@apiLogin');
-    Route::post('register', 'AccountController@apiRegister');
-
-    Route::middleware(['check'])->group(function () {
-        Route::post('profile', 'MemberController@apiProfile');
-    });
-});
